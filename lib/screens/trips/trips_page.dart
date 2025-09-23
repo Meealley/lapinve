@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+
+class TripsPage extends StatelessWidget {
+  const TripsPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Text(
+          "Trips Page",
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+}
