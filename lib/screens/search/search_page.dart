@@ -69,93 +69,94 @@ class _SearchPageState extends State<SearchPage> {
 
                       SizedBox(height: 30),
                       // Categories Section
-                      const Text(
-                        'Popular Categories',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black87,
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      SizedBox(
-                        height: 120,
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 5,
-                          itemBuilder: (context, index) {
-                            final categories = [
-                              {
-                                'name': 'Hotels',
-                                'icon': Icons.hotel,
-                                'color': Colors.blue,
-                              },
-                              {
-                                'name': 'Flights',
-                                'icon': Icons.flight,
-                                'color': Colors.orange,
-                              },
-                              {
-                                'name': 'Cars',
-                                'icon': Icons.directions_car,
-                                'color': Colors.green,
-                              },
-                              {
-                                'name': 'Tours',
-                                'icon': Icons.tour,
-                                'color': Colors.purple,
-                              },
-                              {
-                                'name': 'Food',
-                                'icon': Icons.restaurant,
-                                'color': Colors.red,
-                              },
-                            ];
+                      // const Text(
+                      //   'Popular Categories',
+                      //   style: TextStyle(
+                      //     fontSize: 22,
+                      //     fontWeight: FontWeight.bold,
+                      //     color: Colors.black87,
+                      //   ),
+                      // ),
+                      // const SizedBox(height: 16),
 
-                            final category = categories[index];
-                            return Container(
-                              width: 100,
-                              margin: const EdgeInsets.only(right: 16),
-                              decoration: BoxDecoration(
-                                color: (category['color'] as Color).withOpacity(
-                                  0.1,
-                                ),
-                                borderRadius: BorderRadius.circular(16),
-                                border: Border.all(
-                                  color: (category['color'] as Color)
-                                      .withOpacity(0.3),
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    padding: const EdgeInsets.all(16),
-                                    decoration: BoxDecoration(
-                                      color: category['color'] as Color,
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    child: Icon(
-                                      category['icon'] as IconData,
-                                      color: Colors.white,
-                                      size: 28,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    category['name'] as String,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      color: category['color'] as Color,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      const SizedBox(height: 32),
+                      // SizedBox(
+                      //   height: 120,
+                      //   child: ListView.builder(
+                      //     scrollDirection: Axis.horizontal,
+                      //     itemCount: 5,
+                      //     itemBuilder: (context, index) {
+                      //       final categories = [
+                      //         {
+                      //           'name': 'Hotels',
+                      //           'icon': Icons.hotel,
+                      //           'color': Colors.blue,
+                      //         },
+                      //         {
+                      //           'name': 'Flights',
+                      //           'icon': Icons.flight,
+                      //           'color': Colors.orange,
+                      //         },
+                      //         {
+                      //           'name': 'Cars',
+                      //           'icon': Icons.directions_car,
+                      //           'color': Colors.green,
+                      //         },
+                      //         {
+                      //           'name': 'Tours',
+                      //           'icon': Icons.tour,
+                      //           'color': Colors.purple,
+                      //         },
+                      //         {
+                      //           'name': 'Food',
+                      //           'icon': Icons.restaurant,
+                      //           'color': Colors.red,
+                      //         },
+                      //       ];
+
+                      //       final category = categories[index];
+                      //       return Container(
+                      //         width: 100,
+                      //         margin: const EdgeInsets.only(right: 16),
+                      //         decoration: BoxDecoration(
+                      //           color: (category['color'] as Color).withOpacity(
+                      //             0.1,
+                      //           ),
+                      //           borderRadius: BorderRadius.circular(16),
+                      //           border: Border.all(
+                      //             color: (category['color'] as Color)
+                      //                 .withOpacity(0.3),
+                      //           ),
+                      //         ),
+                      //         child: Column(
+                      //           mainAxisAlignment: MainAxisAlignment.center,
+                      //           children: [
+                      //             Container(
+                      //               padding: const EdgeInsets.all(16),
+                      //               decoration: BoxDecoration(
+                      //                 color: category['color'] as Color,
+                      //                 borderRadius: BorderRadius.circular(12),
+                      //               ),
+                      //               child: Icon(
+                      //                 category['icon'] as IconData,
+                      //                 color: Colors.white,
+                      //                 size: 28,
+                      //               ),
+                      //             ),
+                      //             const SizedBox(height: 8),
+                      //             Text(
+                      //               category['name'] as String,
+                      //               style: TextStyle(
+                      //                 fontWeight: FontWeight.w600,
+                      //                 color: category['color'] as Color,
+                      //               ),
+                      //             ),
+                      //           ],
+                      //         ),
+                      //       );
+                      //     },
+                      //   ),
+                      // ),
+                      // const SizedBox(height: 32),
 
                       // Popular Destinations
                       const Text(

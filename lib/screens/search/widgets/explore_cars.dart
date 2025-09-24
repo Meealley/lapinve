@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class ExploreCars extends StatelessWidget {
   const ExploreCars({super.key});
@@ -19,7 +20,7 @@ class ExploreCars extends StatelessWidget {
           style: TextStyle(fontSize: 16),
         ),
 
-        SizedBox(height: 10),
+        SizedBox(height: 2.h),
 
         TextButton(
           onPressed: () {},
