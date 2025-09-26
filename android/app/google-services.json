@@ -12,7 +12,20 @@
           "package_name": "com.example.lapinve"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "690091778463-nkr93dmsr1n4abrhc8csdpfdfvnfukp4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lapinve",
+            "certificate_hash": "6d53287b0202e7404826f61f29861c2d31e1015d"
+          }
+        },
+        {
+          "client_id": "690091778463-vke5qoiuv3u469g3k6lfp1u6tjij01cn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDFvHEciQMm_HMEAa08wdSPZAK7ONTFa6Y"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "690091778463-vke5qoiuv3u469g3k6lfp1u6tjij01cn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "690091778463-med5ac15psdcsuks56k7o7f5i60f6gp2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.lapinve"
+              }
+            }
+          ]
         }
       }
     }

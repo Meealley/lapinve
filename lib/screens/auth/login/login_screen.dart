@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
-  final bool _isLoading = false;
+  // final bool _isLoading = false;
 
   @override
   void dispose() {
@@ -322,7 +322,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: double.infinity,
                         height: 5.h,
                         child: ElevatedButton(
-                          onPressed: _isLoading ? null : _handleLogin,
+                          onPressed: isLoading ? null : _handleLogin,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue,
                             foregroundColor: Colors.white,
@@ -331,7 +331,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               borderRadius: BorderRadius.circular(1.5.h),
                             ),
                           ),
-                          child: _isLoading
+                          child: isLoading
                               ? SizedBox(
                                   height: 3.h,
                                   width: 3.h,

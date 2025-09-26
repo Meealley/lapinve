@@ -31,6 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<SignUpWithEmailRequested>(_onSignUpWithEmailRequested);
     on<SignInWithEmailRequested>(_onSignInWithEmailRequested);
     on<SignInWithGoogleRequested>(_onSignInGoogleRequested);
+    on<SignOutRequested>(_onSignOutRequested);
   }
 
   void _onAuthStatusRequested(

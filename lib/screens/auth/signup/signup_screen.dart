@@ -27,7 +27,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   bool _isPasswordVisible = false;
   bool _isConfirmPasswordVisible = false;
-  final bool _isLoading = false;
+  // final bool _isLoading = false;
   bool _acceptTerms = false;
 
   @override
@@ -90,11 +90,19 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
-        if (state.isAuthenticated && state.message != null) {
+        print("🔍 AuthState changed:");
+        print("  - Status: ${state.status}");
+        print("  - Is Authenticated: ${state.isAuthenticated}");
+        print("  - Has Error: ${state.hasError}");
+        print("  - Message: ${state.message}");
+        print("  - Error: ${state.error}");
+        if (state.isAuthenticated) {
+          print("🔍 Navigating to /search");
           context.go('/search');
         }
         // Handle errors
         if (state.hasError) {
+          print("🔍 Showing error: ${state.error}");
           AlertUtils.showErrorAlert(
             context: context,
             title: 'Signup Failed',
@@ -129,7 +137,7 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
             body: SafeArea(
               child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 6.w),
+                padding: EdgeInsets.symmetric(horizontal: 4.w),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -147,20 +155,20 @@ class _SignupScreenState extends State<SignupScreen> {
                             //   width: 30.w,
                             // ),
                             // SizedBox(height: 2.h),
-                            Text(
-                              'Create Account',
-                              style: TextStyle(
-                                fontSize: 22.sp,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87,
-                              ),
-                            ),
-                            SizedBox(height: 1.h),
+                            // Text(
+                            //   'Create Account',
+                            //   style: TextStyle(
+                            //     fontSize: 22.sp,
+                            //     fontWeight: FontWeight.bold,
+                            //     color: Colors.black87,
+                            //   ),
+                            // ),
+                            // SizedBox(height: 1.h),
                             Text(
                               'Sign up to start your car rental journey',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: 12.sp,
+                                fontSize: 15.sp,
                                 color: Colors.grey[600],
                               ),
                             ),
@@ -209,25 +217,6 @@ class _SignupScreenState extends State<SignupScreen> {
                         },
                       ),
 
-                      SizedBox(height: 2.h),
-
-                      // Phone field
-                      // _buildInputField(
-                      //   label: 'Phone Number',
-                      //   controller: _phoneController,
-                      //   hint: 'Enter your phone number',
-                      //   icon: Icons.phone_outlined,
-                      //   keyboardType: TextInputType.phone,
-                      //   validator: (value) {
-                      //     if (value == null || value.isEmpty) {
-                      //       return 'Please enter your phone number';
-                      //     }
-                      //     if (value.length < 10) {
-                      //       return 'Please enter a valid phone number';
-                      //     }
-                      //     return null;
-                      //   },
-                      // ),
                       SizedBox(height: 2.h),
 
                       // Password field
@@ -301,7 +290,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                 TextSpan(
                                   text: 'I agree to the ',
                                   style: TextStyle(
-                                    fontSize: 14.sp,
+                                    fontSize: 14.5.sp,
                                     color: Colors.grey[600],
                                   ),
                                   children: [
@@ -335,18 +324,18 @@ class _SignupScreenState extends State<SignupScreen> {
                       //  Email Sign up button
                       SizedBox(
                         width: double.infinity,
-                        height: 6.h,
+                        height: 5.h,
                         child: ElevatedButton(
-                          onPressed: _isLoading ? null : _handleEmailSignup,
+                          onPressed: isEmailLoading ? null : _handleEmailSignup,
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blue,
                             foregroundColor: Colors.white,
                             elevation: 0,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(3.h),
+                              borderRadius: BorderRadius.circular(1.5.h),
                             ),
                           ),
-                          child: _isLoading
+                          child: isEmailLoading
                               ? SizedBox(
                                   height: 3.h,
                                   width: 3.h,
@@ -385,7 +374,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ],
                       ),
 
-                      SizedBox(height: 3.h),
+                      SizedBox(height: 2.5.h),
 
                       // Social signup buttons
                       Column(
@@ -428,7 +417,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                         Text(
                                           'Continue with Google',
                                           style: TextStyle(
-                                            fontSize: 13.sp,
+                                            fontSize: 15.sp,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
@@ -478,7 +467,7 @@ class _SignupScreenState extends State<SignupScreen> {
                                           Text(
                                             'Continue with Apple',
                                             style: TextStyle(
-                                              fontSize: 13.sp,
+                                              fontSize: 15.sp,
                                               fontWeight: FontWeight.w500,
                                             ),
                                           ),
@@ -497,7 +486,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             Text(
                               "Already have an account? ",
                               style: TextStyle(
-                                fontSize: 12.sp,
+                                fontSize: 14.sp,
                                 color: Colors.grey[600],
                               ),
                             ),
@@ -545,7 +534,7 @@ class _SignupScreenState extends State<SignupScreen> {
         Text(
           label,
           style: TextStyle(
-            fontSize: 13.sp,
+            fontSize: 15.sp,
             fontWeight: FontWeight.w600,
             color: Colors.black87,
           ),
@@ -577,7 +566,7 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
             contentPadding: EdgeInsets.symmetric(
               horizontal: 4.w,
-              vertical: 2.h,
+              vertical: 1.5.h,
             ),
           ),
         ),
@@ -599,7 +588,7 @@ class _SignupScreenState extends State<SignupScreen> {
         Text(
           label,
           style: TextStyle(
-            fontSize: 13.sp,
+            fontSize: 15.sp,
             fontWeight: FontWeight.w600,
             color: Colors.black87,
           ),
@@ -638,7 +627,7 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
             contentPadding: EdgeInsets.symmetric(
               horizontal: 4.w,
-              vertical: 2.h,
+              vertical: 1.5.h,
             ),
           ),
         ),

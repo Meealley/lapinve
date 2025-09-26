@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lapinve/blocs/auth/auth_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 class ExploreCars extends StatelessWidget {
@@ -23,7 +25,9 @@ class ExploreCars extends StatelessWidget {
         SizedBox(height: 2.h),
 
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            context.read<AuthBloc>().add(SignOutRequested());
+          },
 
           style: TextButton.styleFrom(
             minimumSize: Size(double.infinity, 45),

@@ -2,6 +2,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lapinve/blocs/auth/auth_bloc.dart';
+import 'package:lapinve/router/widgets/auth_guard.dart';
 import 'package:lapinve/router/widgets/scaffold_with_navbar.dart';
 import 'package:lapinve/screens/auth/login/login_screen.dart';
 import 'package:lapinve/screens/auth/signup/signup_screen.dart';
@@ -57,7 +58,7 @@ final GoRouter router = GoRouter(
     // Main app routes (with bottom navigation)
     ShellRoute(
       builder: (context, state, child) {
-        return ScaffoldWithNavbar(child: child);
+        return AuthGuard(child: ScaffoldWithNavbar(child: child));
       },
       routes: [
         GoRoute(
