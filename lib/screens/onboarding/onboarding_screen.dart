@@ -20,21 +20,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     OnboardingData(
       title: "Welcome to Lapinve",
       description:
-          "Discover amazing features and services tailored just for you. Your journey begins here.",
+          // "Discover amazing features and services tailored just for you. Your journey begins here.",
+          "Find the perfect ride for every journey — simple, fast, and reliable",
       icon: Icons.car_rental,
       color: Colors.blue,
     ),
     OnboardingData(
       title: "Easy to Use",
       description:
-          "Navigate through our intuitive interface with ease and comfort. Everything is designed for you.",
+          // "Navigate through our intuitive interface with ease and comfort. Everything is designed for you.",
+          "Book, unlock, and drive in just a few taps — no stress, no hassle.",
       icon: Icons.touch_app,
       color: Colors.green,
     ),
     OnboardingData(
       title: "Get Started",
       description:
-          "Join thousands of users who trust Lapinve for their daily needs. Ready to begin?",
+          // "Join thousands of users who trust Lapinve for their daily needs. Ready to begin?",
+          "Sign up today and hit the road with freedom at your fingertips",
       icon: Icons.rocket_launch,
       color: Colors.orange,
     ),

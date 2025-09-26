@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:lapinve/screens/home_screen.dart';
 import 'package:lapinve/utils/alert_utils.dart';
+import 'package:rive/rive.dart';
 import 'package:sizer/sizer.dart';
 import 'package:go_router/go_router.dart';
 
@@ -66,26 +67,39 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 8.h),
+                SizedBox(height: 3.h),
 
                 // Logo/Brand section
                 Center(
                   child: Column(
                     children: [
                       Container(
-                        height: 15.h,
-                        width: 30.w,
-                        decoration: BoxDecoration(
-                          color: Colors.blue.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(4.w),
-                        ),
-                        child: Icon(
-                          Icons.car_rental,
-                          size: 15.w,
-                          color: Colors.blue,
+                        // height: 15.h,
+                        // width: 30.w,
+                        // decoration: BoxDecoration(
+                        // color: Colors.blue.withOpacity(0.1),
+                        // borderRadius: BorderRadius.circular(4.w),
+                        // ),
+                        // child: Icon(
+                        //   Icons.car_rental,
+                        //   size: 15.w,
+                        //   color: Colors.blue,
+                        // ),
+                        // child: SizedBox(
+                        //   height: 150,
+                        //   width: double.infinity,
+                        //   child: RiveAnimation.asset(
+                        //     'assets/animations/car_animation.riv', // Replace with your actual Rive file path
+                        //     fit: BoxFit.contain,
+                        //   ),
+                        // ),
+                        child: Image.asset(
+                          "assets/images/lapinve_logo.png",
+                          height: 15.h,
+                          width: 30.w,
                         ),
                       ),
-                      SizedBox(height: 3.h),
+                      SizedBox(height: 1.h),
                       Text(
                         'Welcome Back!',
                         style: TextStyle(
@@ -106,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
 
-                SizedBox(height: 6.h),
+                SizedBox(height: 4.h),
 
                 // Email field
                 Text(
@@ -233,7 +247,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                 ),
 
-                SizedBox(height: 1.5.h),
+                // SizedBox(height: 1.5.h),
 
                 // Forgot password
                 Align(
@@ -241,10 +255,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: TextButton(
                     onPressed: () {
                       // Handle forgot password
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Forgot password feature coming soon!'),
-                        ),
+                      AlertUtils.showPlatformAlert(
+                        context: context,
+                        title: 'Forgot Password',
+                        message:
+                            'Forgot Password feature is coming soon! Stay tuned for updates.',
                       );
                     },
                     child: Text(
@@ -293,7 +308,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
 
-                SizedBox(height: 3.h),
+                SizedBox(height: 2.5.h),
 
                 // Sign up link
                 Center(
@@ -303,23 +318,24 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text(
                         "Don't have an account? ",
                         style: TextStyle(
-                          fontSize: 14.sp,
+                          fontSize: 15.sp,
                           color: Colors.grey[600],
                         ),
                       ),
                       TextButton(
                         onPressed: () {
-                          AlertUtils.showPlatformAlert(
-                            context: context,
-                            title: 'Sign Up',
-                            message:
-                                'Account registration feature is coming soon! Stay tuned for updates.',
-                          );
+                          context.go("/signup");
+                          // AlertUtils.showPlatformAlert(
+                          //   context: context,
+                          //   title: 'Sign Up',
+                          //   message:
+                          //       'Account registration feature is coming soon! Stay tuned for updates.',
+                          // );
                         },
                         child: Text(
                           'Sign Up',
                           style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 15.sp,
                             color: Colors.blue,
                             fontWeight: FontWeight.w600,
                           ),
@@ -329,7 +345,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
 
-                SizedBox(height: 4.h),
+                SizedBox(height: 3.h),
               ],
             ),
           ),

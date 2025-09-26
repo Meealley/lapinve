@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "690091778463",
+    "project_id": "lapinve-92018",
+    "storage_bucket": "lapinve-92018.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:690091778463:android:301dd098e8ac83beb1ddaa",
+        "android_client_info": {
+          "package_name": "com.example.lapinve"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFvHEciQMm_HMEAa08wdSPZAK7ONTFa6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
