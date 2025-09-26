@@ -9,7 +9,8 @@ abstract class AuthRepositoryInterface {
   UserModel? get currentUser;
 
   // Email & Password Authentication
-  Future<UserModel> signUpWithEmailAndPassword(SignUpData signUpData);
+  Future<AuthResult> signUpWithEmailAndPassword(SignUpData signUpData);
+
   Future<AuthResult> signInWithEmailAndPassword({
     required String email,
     required String password,
@@ -29,10 +30,7 @@ abstract class AuthRepositoryInterface {
   Future<AuthResult> updateUserProfile(UserModel updatedUser);
   Future<AuthResult> updatePhoneNumber(String phoneNumber);
   Future<AuthResult> verifyPhoneNumber(String verificationCode);
-  Future<AuthResult> uploadDriverLicense(
-    String licenseNumber,
-    String photoPath,
-  );
+  Future<AuthResult> uploadDriverLicense(String licenseNumber, String photoUrl);
   Future<AuthResult> uploadIdVerification(String photoUrl);
   Future<AuthResult> uploadSelfie(String photoUrl);
   Future<AuthResult> updateAddress(String address);
@@ -40,4 +38,6 @@ abstract class AuthRepositoryInterface {
 
   // Account Deletion
   Future<AuthResult> deleteAccount();
+
+  void dispose();
 }

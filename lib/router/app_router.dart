@@ -1,5 +1,7 @@
 // Go Router Configuration
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lapinve/blocs/auth/auth_bloc.dart';
 import 'package:lapinve/router/widgets/scaffold_with_navbar.dart';
 import 'package:lapinve/screens/auth/login/login_screen.dart';
 import 'package:lapinve/screens/auth/signup/signup_screen.dart';
@@ -14,6 +16,33 @@ import 'package:lapinve/screens/trips/trips_page.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/', // Start with onboarding
+
+  redirect: (context, state) {
+    // Get auth state from Bloc
+    final authBloc = context.read<AuthBloc>();
+    final authState = authBloc.state;
+
+    final currentPath = state.matchedLocation;
+
+    final isGoingToAuth =
+        currentPath == '/login' ||
+        currentPath == '/signup' ||
+        currentPath == '/' ||
+        currentPath == '/onboarding';
+
+    // If user is authenticated and trying to go to auth pages, redirect to search
+    if (authState.isAuthenticated && isGoingToAuth && currentPath != '/') {
+      return '/search';
+    }
+
+    // If user is not authenticated and trying to access protected routes, redirect to login
+    if (!authState.isAuthenticated &&
+        !isGoingToAuth &&
+        authState.status != AuthStatus.unknown) {
+      return '/login';
+    }
+    return null;
+  },
   routes: [
     GoRoute(path: "/", builder: (context, state) => const SplashScreen()),
 

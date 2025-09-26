@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:lapinve/models/user_model.dart';
 
-enum AuthProvider { emailPassword, google, apple, facebook }
+enum AuthProvider { emailPassword, google, apple }
 
 class SignUpData {
   final String fullName;
